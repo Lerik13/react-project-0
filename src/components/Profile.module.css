@@ -1,0 +1,14 @@
+.profile {
+	grid-area: c;
+	background-color: white;
+}
+.profile__header {
+	height: 200px;
+}
+.profile__header img {
+	height: 100%;
+}
+
+.item {
+	color: blueviolet;
+}
