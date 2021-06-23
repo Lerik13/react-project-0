@@ -24,6 +24,15 @@ let state = {
 			{id: 5, message: 'What\'s up'},
 			{id: 6, message: 'Hello'},
 		]
+	},
+	sidebar: {
+		friends: [
+			{id: 1, name: 'Kolya'},
+			{id: 2, name: 'Nastya'},
+			{id: 3, name: 'Yana'},
+			{id: 4, name: 'Stanislav'},
+			{id: 5, name: 'Vova'},
+		]
 	}
 }
 
