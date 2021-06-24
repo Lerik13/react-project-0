@@ -38,36 +38,35 @@ let store = {
 			]
 		}
 	},
-	getState() {
-		return this._state;
-	},
-
 	_callSubscriber() {
 		// заглушка = plug
 		console.log('State was changed');
+	},
+
+	getState() {
+		return this._state;
 	},
 	subscribe(observer) {
 		this._callSubscriber = observer;
 	},
 
-	addPost() {
-		//debugger;
-		let newPost = {
-			id: 5,
-			message: this._state.profilePage.newPostText,
-			likesCount: 0
+	dispatch(action) {
+		if (action.type === 'ADD-POST') {
+			//debugger;
+			let newPost = {
+				id: 5,
+				message: this._state.profilePage.newPostText,
+				likesCount: 0
+			}
+			this._state.profilePage.posts.push(newPost);
+			this._state.profilePage.newPostText = '';
+			this._callSubscriber(this._state);
+		} 
+		else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+			this._state.profilePage.newPostText = action.newText;
+			this._callSubscriber(this._state);
 		}
-		this._state.profilePage.posts.push(newPost);
-		this._state.profilePage.newPostText = '';
-		this._callSubscriber(this._state);
-	},
-	
-	// Синхронизация данных, при каждом изменении -> меняется State
-	updateNewPostText(newText) {
-		this._state.profilePage.newPostText = newText;
-		this._callSubscriber(this._state);
 	}
-
 }
 
 export default store;
