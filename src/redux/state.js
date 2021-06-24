@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
 	profilePage: {
 		posts: [
@@ -5,7 +7,8 @@ let state = {
 			{id: 2, message: 'It is my first post', likesCount: 5},
 			{id: 3, message: 'Bla-bla', likesCount: 1},
 			{id: 4, message: 'da-da', likesCount: 0}
-		]
+		],
+		newPostText: 'new post'
 	},
 	dialogsPage: {
 		dialogs: [
@@ -34,6 +37,23 @@ let state = {
 			{id: 5, name: 'Vova'},
 		]
 	}
+}
+
+export let addPost = () => {
+	//debugger;
+	let newPost = {
+		id: 5,
+		message: state.profilePage.newPostText,
+		likesCount: 0
+	}
+	state.profilePage.posts.push(newPost);
+	state.profilePage.newPostText = '';
+	rerenderEntireTree(state);
+}
+// Синхронизация данных, при каждом изменении -> меняется State
+export let updateNewPostText = (newText) => {
+	state.profilePage.newPostText = newText;
+	rerenderEntireTree(state);
 }
 
 export default state;
