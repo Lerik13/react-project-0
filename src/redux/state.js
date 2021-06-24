@@ -1,4 +1,7 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = (state) => {
+	// заглушка = plug
+	console.log('State was changed');
+}
 
 let state = {
 	profilePage: {
@@ -39,7 +42,9 @@ let state = {
 	}
 }
 
-export let addPost = () => {
+window.state = state;
+
+export const addPost = () => {
 	//debugger;
 	let newPost = {
 		id: 5,
@@ -51,9 +56,13 @@ export let addPost = () => {
 	rerenderEntireTree(state);
 }
 // Синхронизация данных, при каждом изменении -> меняется State
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
 	state.profilePage.newPostText = newText;
 	rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+	rerenderEntireTree = observer;
 }
 
 export default state;
