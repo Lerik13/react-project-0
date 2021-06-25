@@ -7,6 +7,7 @@ const Navbar = (props) => {
 		<div className={s.sidebar}>
 			<nav className={s.nav}>
 				<div className={`${s.item}`}>
+					{/* Link without reloading */}
 					<NavLink to='/profile' activeClassName={s.activeLink}>Profile</NavLink>
 				</div>
 				<div className={s.item}>
