@@ -6,5 +6,20 @@
 }
 .profileDescription	{
 	padding: 10px;
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	grid-column-gap: 10px;
 }
 
+.profileDescription	img {
+	max-width: 200px;
+}
+
+.fullName {
+	display: block;
+	font-weight: bold;
+}
+.aboutMe {
+	display: block;
+	font-style: italic;
+}
