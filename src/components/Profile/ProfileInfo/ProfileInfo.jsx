@@ -14,7 +14,8 @@ const ProfileInfo = (props) => {
 			</div>
 			<div className={s.profileDescription}>
 				<div className={s.profilePhoto}>
-					<img src={props.profile.photos.large} alt='profile picture' />
+					<img src={props.profile.photos.large ? props.profile.photos.large : 'https://st2.depositphotos.com/1009634/7235/v/600/depositphotos_72350117-stock-illustration-no-user-profile-picture-hand.jpg'}
+						alt='Profile Picture' />
 				</div>
 				<div>
 					<span className={s.fullName}>{props.profile.fullName}</span>
